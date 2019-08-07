@@ -4,7 +4,7 @@ Tested working node.js version 10 LTS and node 12 Current.
 
 ## Routes
 ```javascript
-//get the list of stored trms stored on the db
+//get the list of trms stored on the db
 GET /trm
 ```
 ```javascript
