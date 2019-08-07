@@ -1,0 +1,117 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "This API allows the user to retrieve the currency conversion rates from USD to UYU",
+
+      "title": "conversion-rates-api",
+      "contact": {
+        "name": "Samuel De La Cruz",
+        "email": "alphaelena@gmail.com"
+      }
+    },
+    "host": "localhost:4040",
+    "basePath": "/",
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/trm": {
+        "get": {
+          "tags": [
+            "rates"
+          ],
+          "description": "GET method, returns a list of currency conversion rates stored on mongodb",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "page",
+              "in": "query",
+              "description": "the current page used when pagination is required",
+              "required": false,
+              "type": "number"
+            },
+            {
+                "name": "limit",
+                "in": "query",
+                "description": "number of results per page when pagination is required",
+                "required": false,
+                "type": "number"
+              }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                  "type":"array",
+                  "items": {
+                    "properties": {
+                        "_id": {
+                          "$id": "#/items/properties/_id",
+                          "type": "string",
+                          "title": "The _id Schema",
+                          "default": "",
+                          "examples": [
+                            "5d49f0f7f01ef786cfc260bf"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "rate": {
+                          "$id": "#/items/properties/rate",
+                          "type": "number",
+                          "title": "The Rate Schema",
+                          "default": 0.0,
+                          "examples": [
+                            0.017573
+                          ]
+                        },
+                        "source": {
+                          "$id": "#/items/properties/source",
+                          "type": "string",
+                          "title": "The Source Schema",
+                          "default": "",
+                          "examples": [
+                            "DOP"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "time": {
+                          "$id": "#/items/properties/time",
+                          "type": "string",
+                          "title": "The Time Schema",
+                          "default": "",
+                          "examples": [
+                            "2019-08-06T00:00:00"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "target": {
+                          "$id": "#/items/properties/target",
+                          "type": "string",
+                          "title": "The Target Schema",
+                          "default": "",
+                          "examples": [
+                            "EUR"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "__v": {
+                          "$id": "#/items/properties/__v",
+                          "type": "integer",
+                          "title": "The __v Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        }
+                      }
+                  }
+              }
+             
+            }
+          }
+        }
+      }
+    }
+  }
